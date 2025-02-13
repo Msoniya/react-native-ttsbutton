@@ -1,6 +1,18 @@
 # react-native-ttsbutton
 
-A reusable and customizable React Native button component with support for styling, onPress events, and dynamic colors. Ideal for use in various mobile applications.
+A highly flexible and reusable button component for React Native applications, designed to handle a wide range of use cases with ease. This component supports:
+
+* Custom Styling: Apply custom styles, colors, and sizes to fit your app's design system.
+* Dynamic Colors: Use solid colors, gradients, or ghost (transparent) styles for buttons.
+* Multiple Types: Choose from predefined button types like primary, default, danger, dashed, text, and link.
+* Shapes: Supports default, oval, and circular button shapes.
+* Icons: Add start and end icons for better visual appeal.
+* Loading State: Integrated loading indicator with customizable position and color.
+* Press Animation: Smooth scaling animation on button press for enhanced user feedback.
+* Gradient Support: Apply linear gradients for visually stunning buttons.
+* Accessibility: Built with accessibility in mind, ensuring a seamless user experience.
+
+Ideal for use in mobile applications where a consistent and customizable button component is required. Perfect for forms, dialogs, navigation, and more.
 
 ## Installation
 
@@ -12,11 +24,18 @@ npm install react-native-ttsbutton
 
 
 ```js
-import { multiply } from 'react-native-ttsbutton';
+import { TTSButton } from 'react-native-ttsbutton';
 
-// ...
+<TTSButton
+  text="Submit"
+  onPress={() => console.log('Button pressed!')}
+  type="primary"
+  size="default"
+  gradientColors={['#FF512F', '#DD2476']} // Gradient colors
+  startIcon={<Icon name="check" size={16} color="#FFF" />} // Start icon
+  loaderPosition="end"
+/>
 
-const result = await multiply(3, 7);
 ```
 
 

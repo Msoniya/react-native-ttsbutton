@@ -1,12 +1,25 @@
-import { multiply } from 'react-native-ttsbutton';
-import { Text, View, StyleSheet } from 'react-native';
-
-const result = multiply(3, 7);
+import { useState } from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import { TTSButton } from 'react-native-ttsbutton';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function App() {
+  const [label, setLabel] = useState('');
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <TTSButton
+        text="Hello world!"
+        onPress={() => setLabel('Welcome to hello world!')}
+        type="primary"
+        size="default"
+        loaderPosition="end"
+        startIcon={<Icon name="download" size={15} color="#fff" />}
+        shape="default"
+      />
+      <Text style={styles.label}>
+        {label}
+        {label ? <Text>😊</Text> : ''}
+      </Text>
     </View>
   );
 }
@@ -16,5 +29,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  label: {
+    marginVertical: 20,
   },
 });
