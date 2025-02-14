@@ -23,7 +23,6 @@ interface TTSButtonProps {
   endIcon?: React.ReactNode;
   shape?: 'default' | 'oval' | 'circle';
   ghost?: boolean;
-  gradientColors?: string[];
 }
 
 const BUTTON_STYLES = {
@@ -88,6 +87,8 @@ export const TTSButton: React.FC<TTSButtonProps> = React.memo(
         setTimeout(() => {
           setLoadings((prevLoadings) => !prevLoadings);
         }, 2000);
+      } else {
+        onPress();
       }
     };
 
@@ -216,6 +217,14 @@ export const TTSButton: React.FC<TTSButtonProps> = React.memo(
       }).start();
     };
 
+    const renderButtonContent = () => (
+      <View style={styles.contentContainer}>
+        {loaderPosition === 'start' && loader}
+        {buttonContent}
+        {loaderPosition === 'end' && loader}
+      </View>
+    );
+
     return (
       <Animated.View style={{ transform: [{ scale: scaleValue }] }}>
         <TouchableOpacity
@@ -226,11 +235,7 @@ export const TTSButton: React.FC<TTSButtonProps> = React.memo(
           activeOpacity={0.7}
           disabled={loadings}
         >
-          <View style={styles.contentContainer}>
-            {loaderPosition === 'start' && loader}
-            {buttonContent}
-            {loaderPosition === 'end' && loader}
-          </View>
+          {renderButtonContent()}
         </TouchableOpacity>
       </Animated.View>
     );
@@ -243,9 +248,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 3,
-  },
-  gradientWrapper: {
-    borderRadius: 8,
   },
   defaultShape: {
     borderRadius: 8,
