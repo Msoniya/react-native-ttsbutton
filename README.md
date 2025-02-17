@@ -30,6 +30,7 @@ import { TTSButton } from 'react-native-ttsbutton';
   onPress={() => console.log('Button pressed!')}
   type="primary"
   size="default"
+  disable
   startIcon={<Icon name="check" size={16} color="#FFF" />} // Start icon
   loaderPosition="end"
   shape="oval"

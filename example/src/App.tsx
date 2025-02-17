@@ -13,6 +13,7 @@ export default function App() {
         type="primary"
         size="default"
         loaderPosition="end"
+        disable
         startIcon={<Icon name="download" size={15} color="#fff" />}
         shape="default"
       />

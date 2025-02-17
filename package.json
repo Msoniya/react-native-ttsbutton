@@ -1,6 +1,6 @@
 {
   "name": "react-native-ttsbutton",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A reusable and customizable React Native button component with support for styling, onPress events, and dynamic colors. Ideal for use in various mobile applications.",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",

@@ -23,6 +23,7 @@ interface TTSButtonProps {
   endIcon?: React.ReactNode;
   shape?: 'default' | 'oval' | 'circle';
   ghost?: boolean;
+  disable?: boolean;
 }
 
 const BUTTON_STYLES = {
@@ -75,6 +76,7 @@ export const TTSButton: React.FC<TTSButtonProps> = React.memo(
     endIcon,
     shape = 'default',
     ghost = false,
+    disable = false,
   }) => {
     const [loadings, setLoadings] = useState<boolean>(false);
     const scaleValue = useRef(new Animated.Value(1)).current;
@@ -233,7 +235,7 @@ export const TTSButton: React.FC<TTSButtonProps> = React.memo(
           onPressIn={handlePressIn}
           onPressOut={handlePressOut}
           activeOpacity={0.7}
-          disabled={loadings}
+          disabled={disable || loadings}
         >
           {renderButtonContent()}
         </TouchableOpacity>
